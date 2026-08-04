@@ -1,87 +1,91 @@
+---
+import { education } from "../data/education.js";
+
+interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props as Props;
+const data = education[lang];
+---
+
 <section id="education" class="section">
-  <h2>Education & Certifications</h2>
+  <h2>{data.title}</h2>
 
   <div class="education-group">
-    <h3 class="education-title">Academic Background</h3>
+    <h3 class="education-title">{data.academicTitle}</h3>
 
     <div class="education-grid">
       <div class="card education-card">
         <div class="card-header">
-          <h3>University Programming Technician</h3>
+          <h3>{data.academic[0].title}</h3>
 
-          <span class="period"> Current </span>
+          <span class="period"> {data.academic[0].badge} </span>
         </div>
 
-        <p class="institution">Universidad Tecnológica Nacional (UTN)</p>
+        <p class="institution">{data.academic[0].institution}</p>
 
-        <p class="description">
-          Focused on software development fundamentals, algorithms, databases,
-          object-oriented programming and software architecture.
-        </p>
+        <p class="description">{data.academic[0].description}</p>
       </div>
 
       <div class="card education-card">
         <div class="card-header">
-          <h3>Professional English Teacher</h3>
+          <h3>{data.academic[1].title}</h3>
 
-          <span class="period"> 7+ Years Experience </span>
+          <span class="period"> {data.academic[1].badge} </span>
         </div>
 
         <p class="institution">
-          Bachelor's Degree in English Language Teaching (ELT)
+          {data.academic[1].institution}
         </p>
 
-        <p class="description">
-          Strong technical communication, native-level documentation reading,
-          and extensive experience in English-speaking academic and professional
-          environments.
-        </p>
+        <p class="description">{data.academic[1].description}</p>
       </div>
     </div>
   </div>
 
   <div class="education-group courses-group">
-    <h3 class="education-title">Courses & Certifications</h3>
+    <h3 class="education-title">{data.coursesTitle}</h3>
 
     <div class="courses-grid">
       <div class="card course-card">
-        <h3>ASP.NET Core Web APIs RESTful</h3>
+        <h3>{data.courses[0].title}</h3>
 
-        <p>Clean Architecture, Security, Validations and Middleware.</p>
+        <p>{data.courses[0].description}</p>
 
-        <span> Felipe Gavilán - Udemy (2026) </span>
+        <span> {data.courses[0].issuer} </span>
       </div>
 
       <div class="card course-card">
-        <h3>C# & .NET Development Level 4</h3>
+        <h3>{data.courses[1].title}</h3>
 
-        <p>.NET 9, MVC, Razor, Entity Framework and Identity.</p>
+        <p>{data.courses[1].description}</p>
 
-        <span> MaxiPrograma.com (2025) </span>
+        <span> {data.courses[1].issuer} </span>
       </div>
 
       <div class="card course-card">
-        <h3>C# & .NET Development Level 2</h3>
+        <h3>{data.courses[2].title}</h3>
 
-        <p>Object-Oriented Programming, .NET fundamentals and SQL.</p>
+        <p>{data.courses[2].description}</p>
 
-        <span> MaxiPrograma.com (2025) </span>
+        <span> {data.courses[2].issuer} </span>
       </div>
 
       <div class="card course-card">
-        <h3>C# Fundamentals</h3>
+        <h3>{data.courses[3].title}</h3>
 
-        <p>Fundamentals and Object-Oriented Programming.</p>
+        <p>{data.courses[3].description}</p>
 
-        <span> Coderhouse (2023) </span>
+        <span> {data.courses[3].issuer} </span>
       </div>
 
       <div class="card course-card">
-        <h3>JavaScript Fundamentals</h3>
+        <h3>{data.courses[4].title}</h3>
 
-        <p>Syntax, DOM manipulation and events.</p>
+        <p>{data.courses[4].description}</p>
 
-        <span> Coderhouse (2022) </span>
+        <span> {data.courses[4].issuer} </span>
       </div>
     </div>
   </div>

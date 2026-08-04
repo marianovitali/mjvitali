@@ -1,26 +1,25 @@
 ---
 import { Icon } from "astro-icon/components";
+import { about } from "../data/about.js";
+
+interface Props {
+  lang?: "en" | "es";
+}
+const { lang = "en" } = Astro.props as Props;
+const data = about[lang];
 ---
 
 <section id="about" class="section">
   <div class="card about-card">
     <div class="about-content">
       <div class="about-text">
-        <h2>About Me</h2>
+        <h2>{data.title}</h2>
 
         <p>
-          I'm a backend-oriented developer focused on building clean, efficient,
-          and maintainable applications with ASP.NET Core. While my core
-          strength lies in backend architecture, APIs, and databases, I have
-          full-stack versatility to develop functional, end-to-end web
-          applications.
-
+          {data.paragraph1}
         </p>
         <p>
-          Before transitioning into software development, I worked as a
-          professional English teacher, which strengthened my communication
-          skills, problem-solving approach, and ability to collaborate
-          effectively in team environments.
+          {data.paragraph2}
         </p>
       </div>
 
@@ -30,7 +29,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="lucide:map-pin" size={22} />
           </span>
 
-          <span class="stat-value"> Buenos Aires, AR </span>
+          <span class="stat-value"> {data.location} </span>
         </div>
 
         <div class="stat-item">
@@ -38,7 +37,9 @@ import { Icon } from "astro-icon/components";
             <Icon name="lucide:graduation-cap" size={22} />
           </span>
 
-          <span class="stat-value"> Associate Degree in Software Development UTN </span>
+          <span class="stat-value">
+            {data.education}
+          </span>
         </div>
 
         <div class="stat-item">
@@ -46,7 +47,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="lucide:target" size={22} />
           </span>
 
-          <span class="stat-value"> .NET Developer </span>
+          <span class="stat-value"> {data.role} </span>
         </div>
 
         <div class="stat-item">
@@ -54,7 +55,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="lucide:languages" size={22} />
           </span>
 
-          <span class="stat-value"> English C2 Level </span>
+          <span class="stat-value"> {data.language} </span>
         </div>
       </div>
     </div>
@@ -88,7 +89,6 @@ import { Icon } from "astro-icon/components";
     .about-text p {
       margin-bottom: 2rem;
     }
-    
 
     .about-stats {
       flex: 1;

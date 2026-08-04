@@ -1,20 +1,31 @@
 ---
 import { Icon } from "astro-icon/components";
 import { skills } from "../data/skills.js";
+
+interface Props {
+  lang?: "en" | "es";
+}
+
+
+const { lang = "en" } = Astro.props as Props;
+
+
+const data = skills[lang];
 ---
 
 <section id="stack" class="section">
-    <h2>Tech Stack</h2>
 
+    <h2>{data.title}</h2>
+    
     <div class="stack-grid">
         {
-            skills.map((category) => (
+
+            data.categories.map((category) => (
                 <div class="card stack-card">
                     <span class="stack-icon">
                         <Icon name={category.icon} size={24} />
                     </span>
                     <h3>{category.title}</h3>
-
                     <ul class="stack-list">
                         {category.items.map((item) => (
                             <li class="stack-item">{item}</li>
