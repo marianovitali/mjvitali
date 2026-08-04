@@ -7,8 +7,11 @@ const { lang = "en" } = Astro.props;
 <header class="navbar">
     <div class="nav-container">
         <div class="nav-brand">
+            <a href={`/${lang}`} class="nav-logo">
+                <Icon name="lucide:code-xml" size={24} class="logo-icon" />
+            </a>
             <a href={`/${lang}`} class="nav-logo"> MV. </a>
-            
+
             <div class="lang-switch">
                 <a href="/en" class={lang === "en" ? "active" : ""}>EN</a>
                 <span class="separator">/</span>
@@ -21,20 +24,40 @@ const { lang = "en" } = Astro.props;
                 <a href="#home"> {lang === "en" ? "Home" : "Inicio"} </a>
                 <a href="#about"> {lang === "en" ? "About" : "Sobre mí"} </a>
                 <a href="#stack"> Stack </a>
-                <a href="#projects"> {lang === "en" ? "Projects" : "Proyectos"} </a>
-                <a href="#education"> {lang === "en" ? "Education" : "Educación"} </a>
-                <a href="#contact"> {lang === "en" ? "Contact" : "Contacto"} </a>
+                <a href="#projects">
+                    {lang === "en" ? "Projects" : "Proyectos"}
+                </a>
+                <a href="#education">
+                    {lang === "en" ? "Education" : "Educación"}
+                </a>
+                <a href="#contact">
+                    {lang === "en" ? "Contact" : "Contacto"}
+                </a>
             </nav>
             <button
                 id="theme-toggle"
                 aria-label="Toggle dark mode"
                 title="Toggle dark mode"
             >
-                <Icon id="theme-icon-moon" name="lucide:moon" size={20} class="theme-icon" />
-                <Icon id="theme-icon-sun" name="lucide:sun" size={20} class="theme-icon" />
+                <Icon
+                    id="theme-icon-moon"
+                    name="lucide:moon"
+                    size={20}
+                    class="theme-icon"
+                />
+                <Icon
+                    id="theme-icon-sun"
+                    name="lucide:sun"
+                    size={20}
+                    class="theme-icon"
+                />
             </button>
 
-            <button id="mobile-menu-btn" aria-label="Menú" class="mobile-toggle">
+            <button
+                id="mobile-menu-btn"
+                aria-label="Menú"
+                class="mobile-toggle"
+            >
                 <Icon name="lucide:menu" size={24} />
             </button>
         </div>
@@ -67,9 +90,13 @@ const { lang = "en" } = Astro.props;
     }
 
     .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         font-size: 1.4rem;
         font-weight: 800;
         letter-spacing: -0.04em;
+        color: var(--color-text);
     }
 
     .lang-switch {
@@ -79,7 +106,7 @@ const { lang = "en" } = Astro.props;
         font-size: 0.85rem;
         font-weight: 700;
         color: var(--color-text-muted);
-        background: var(--color-primary-soft, rgba(0,0,0,0.05));
+        background: var(--color-primary-soft, rgba(0, 0, 0, 0.05));
         padding: 0.3rem 0.6rem;
         border-radius: 6px;
     }
@@ -151,18 +178,17 @@ const { lang = "en" } = Astro.props;
     /* Lógica responsiva para celulares */
     @media (max-width: 800px) {
         .mobile-toggle {
-            display: block; 
+            display: block;
         }
 
-        
         .nav-right {
             gap: 0.5rem;
         }
 
         .nav-links {
-            display: none; 
+            display: none;
             flex-direction: column;
-            align-items: center; 
+            align-items: center;
             position: absolute;
             top: 100%;
             left: 0;
@@ -187,23 +213,23 @@ const { lang = "en" } = Astro.props;
 
 <script>
     function setupMobileMenu() {
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
-        const links = navLinks?.querySelectorAll('a');
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const navLinks = document.getElementById("nav-links");
+        const links = navLinks?.querySelectorAll("a");
 
         if (menuBtn && navLinks) {
             menuBtn.onclick = () => {
-                navLinks.classList.toggle('active');
+                navLinks.classList.toggle("active");
             };
 
-            links?.forEach(link => {
+            links?.forEach((link) => {
                 link.onclick = () => {
-                    navLinks.classList.remove('active');
+                    navLinks.classList.remove("active");
                 };
             });
         }
     }
 
     setupMobileMenu();
-    document.addEventListener('astro:after-swap', setupMobileMenu);
+    document.addEventListener("astro:after-swap", setupMobileMenu);
 </script>
