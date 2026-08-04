@@ -6,7 +6,7 @@ export const site = {
 
     en: {
         role: "Backend .NET Developer",
-        resume: "/CV-MARIANO-VITALI.pdf",
+        resume: "/CV-MARIANO-VITALI-EN.pdf",
         greeting: "Hi, I'm",
         bio: "I build clean and maintainable solutions using C# and the .NET ecosystem, focusing on APIs, databases and scalable software design.",
         ctaProjects: "View Projects",
