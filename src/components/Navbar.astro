@@ -130,7 +130,7 @@ const { lang = "en" } = Astro.props;
         font-weight: 400;
     }
 
-    /* NUEVO: Contenedor para agrupar links y botones a la derecha */
+    
     .nav-right {
         display: flex;
         align-items: center;
@@ -155,12 +155,16 @@ const { lang = "en" } = Astro.props;
     .nav-links a {
         color: var(--color-text-muted);
         font-size: 0.9rem;
-        font-weight: 1000;
+        font-weight: 600;
         transition: color 0.2s ease;
+        padding: 0.1rem 0.1rem;
+        border-radius: 8px; 
+        transition: all 0.2s ease;
     }
 
     .nav-links a:hover {
         color: var(--color-text);
+        background-color: var(--color-primary-soft, rgba(0, 180, 216, 0.15));
     }
 
     #theme-toggle {
@@ -175,7 +179,6 @@ const { lang = "en" } = Astro.props;
         padding: 0.5rem;
     }
 
-    /* Lógica responsiva para celulares */
     @media (max-width: 800px) {
         .mobile-toggle {
             display: block;
