@@ -3,11 +3,11 @@ export const projects = {
         {
             title: "Low Poly Backlog",
             subtitle: "Game Collection Platform",
-            description: "A personal game collection platform built with ASP.NET Core. Features a REST API, Clean Architecture, SQL Server integration and Cloudinary image management.",
+            description: "A personal game collection platform built with ASP.NET Core. Features a REST API, Clean Architecture, SQL Server integration and Cloudinary image management. Please open the API link first to wake it up (~50s delay).",
             image: "/images/projects/lowpoly.png",
             technologies: [".NET 10", "ASP.NET Core", "Clean Architecture", "SQL Server", "Cloudinary"],
             githubUrl: "https://github.com/marianovitali/LowPolyBacklog",
-            demoUrl: "https://lowpolybacklog-web.onrender.com/",
+            demoUrl: "https://github.com/marianovitali/LowPolyBacklog",
             featured: true
         },
         {
@@ -42,11 +42,11 @@ export const projects = {
         {
             title: "Low Poly Backlog",
             subtitle: "Plataforma de Colección de Juegos",
-            description: "Plataforma personal para gestionar colecciones de juegos desarrollada con ASP.NET Core. Cuenta con una API REST, Clean Architecture, integración con SQL Server y manejo de imágenes con Cloudinary.",
+            description: "Plataforma personal para gestionar colecciones de juegos desarrollada con ASP.NET Core. Cuenta con una API REST, Clean Architecture, integración con SQL Server y manejo de imágenes con Cloudinary. Por favor, abrí primero el enlace de la API para despertarla (puede tardar ~50s).",
             image: "/images/projects/lowpoly.png",
             technologies: [".NET 10", "ASP.NET Core", "Clean Architecture", "SQL Server", "Cloudinary"],
             githubUrl: "https://github.com/marianovitali/LowPolyBacklog",
-            demoUrl: "https://lowpolybacklog-web.onrender.com/",
+            demoUrl: "https://github.com/marianovitali/LowPolyBacklog",
             featured: true
         },
         {
