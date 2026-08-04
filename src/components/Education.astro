@@ -1,0 +1,194 @@
+<section id="education" class="section">
+  <h2>Education & Certifications</h2>
+
+  <div class="education-group">
+    <h3 class="education-title">Academic Background</h3>
+
+    <div class="education-grid">
+      <div class="card education-card">
+        <div class="card-header">
+          <h3>University Programming Technician</h3>
+
+          <span class="period"> Current </span>
+        </div>
+
+        <p class="institution">Universidad Tecnológica Nacional (UTN)</p>
+
+        <p class="description">
+          Focused on software development fundamentals, algorithms, databases,
+          object-oriented programming and software architecture.
+        </p>
+      </div>
+
+      <div class="card education-card">
+        <div class="card-header">
+          <h3>Professional English Teacher</h3>
+
+          <span class="period"> 7+ Years Experience </span>
+        </div>
+
+        <p class="institution">
+          Bachelor's Degree in English Language Teaching (ELT)
+        </p>
+
+        <p class="description">
+          Strong technical communication, native-level documentation reading,
+          and extensive experience in English-speaking academic and professional
+          environments.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="education-group courses-group">
+    <h3 class="education-title">Courses & Certifications</h3>
+
+    <div class="courses-grid">
+      <div class="card course-card">
+        <h3>ASP.NET Core Web APIs RESTful</h3>
+
+        <p>Clean Architecture, Security, Validations and Middleware.</p>
+
+        <span> Felipe Gavilán - Udemy (2026) </span>
+      </div>
+
+      <div class="card course-card">
+        <h3>C# & .NET Development Level 4</h3>
+
+        <p>.NET 9, MVC, Razor, Entity Framework and Identity.</p>
+
+        <span> MaxiPrograma.com (2025) </span>
+      </div>
+
+      <div class="card course-card">
+        <h3>C# & .NET Development Level 2</h3>
+
+        <p>Object-Oriented Programming, .NET fundamentals and SQL.</p>
+
+        <span> MaxiPrograma.com (2025) </span>
+      </div>
+
+      <div class="card course-card">
+        <h3>C# Fundamentals</h3>
+
+        <p>Fundamentals and Object-Oriented Programming.</p>
+
+        <span> Coderhouse (2023) </span>
+      </div>
+
+      <div class="card course-card">
+        <h3>JavaScript Fundamentals</h3>
+
+        <p>Syntax, DOM manipulation and events.</p>
+
+        <span> Coderhouse (2022) </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .education-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  .education-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+  }
+
+  .education-group {
+    margin-bottom: 3rem;
+  }
+
+  .education-title {
+    font-size: 1.25rem;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--color-primary);
+  }
+
+  .card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .period {
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    color: var(--color-primary);
+
+    background-color: var(--color-primary-soft);
+
+    padding: 0.25rem 0.5rem;
+
+    border-radius: 4px;
+
+    white-space: nowrap;
+  }
+
+  .institution {
+    font-weight: 500;
+
+    color: var(--color-text);
+
+    font-size: 0.95rem;
+  }
+
+  .description {
+    color: var(--color-text-muted);
+
+    font-size: 0.9rem;
+  }
+
+  .courses-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+  }
+
+  .course-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-card p {
+    color: var(--color-text-muted);
+
+    font-size: 0.9rem;
+
+    flex-grow: 1;
+  }
+
+  .course-card span {
+    color: var(--color-primary);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+  }
+</style>

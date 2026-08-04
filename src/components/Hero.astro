@@ -1,0 +1,164 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    data: any;
+    lang?: "en" | "es";
+}
+const { data, lang = "en" } = Astro.props;
+---
+
+<header id="home" class="hero-section">
+    <p class="greeting">{data.greeting}</p>
+
+    <h1 class="name">{data.name}</h1>
+
+    <h2 class="role">
+        {data.role}
+    </h2>
+
+    <p class="description">
+        {data.bio}
+    </p>
+
+    <div class="actions">
+        <a href="#projects" class="btn btn-primary"> {data.ctaProjects} </a>
+
+        <a href={data.resume} class="btn btn-outline" download>
+            {data.ctaResume}
+        </a>
+    </div>
+
+    <div class="social-links">
+        <a
+            href="https://github.com/MarianoVitali"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <Icon name="simple-icons:github" size={18} />
+
+            GitHub
+        </a>
+
+        <a
+            href="https://linkedin.com/in/marianovitali"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <Icon name="simple-icons:linkedin" size={18} />
+            LinkedIn
+        </a>
+
+        <a href="mailto:marianojuanvitali@gmail.com">
+            <Icon name="lucide:mail" size={18} /> Email
+        </a>
+    </div>
+</header>
+
+<style>
+    .hero-section {
+        min-height: calc(100vh - 70px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 4rem 1.5rem;
+    }
+
+    .greeting {
+        color: var(--color-primary);
+
+        font-size: 2rem;
+
+        font-weight: 600;
+
+        margin-bottom: 1rem;
+    }
+
+    .name {
+        font-size: clamp(3rem, 8vw, 5rem);
+
+        line-height: 1;
+
+        letter-spacing: -0.06em;
+
+        font-weight: 800;
+
+        margin-bottom: 1rem;
+    }
+
+    .role {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+
+        color: var(--color-text-muted);
+
+        font-weight: 500;
+
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        max-width: 600px;
+
+        color: var(--color-text-muted);
+
+        font-size: 1.05rem;
+
+        line-height: 1.7;
+
+        margin-bottom: 2.5rem;
+    }
+
+    .actions {
+        display: flex;
+
+        gap: 1rem;
+
+        margin-bottom: 2.5rem;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .social-links a {
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.45rem;
+
+        color: var(--color-text-muted);
+
+        transition: 0.2s;
+    }
+
+    .social-links a:hover {
+        color: var(--color-primary);
+    }
+
+    .social-links a {
+        transition: color 0.2s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--color-text);
+    }
+
+    .role span {
+        color: var(--color-primary);
+    }
+</style>

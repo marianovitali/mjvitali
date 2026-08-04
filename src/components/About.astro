@@ -1,0 +1,141 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="about" class="section">
+  <div class="card about-card">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Me</h2>
+
+        <p>
+          I'm a backend-oriented developer focused on building clean, efficient,
+          and maintainable applications with ASP.NET Core. While my core
+          strength lies in backend architecture, APIs, and databases, I have
+          full-stack versatility to develop functional, end-to-end web
+          applications.
+
+        </p>
+        <p>
+          Before transitioning into software development, I worked as a
+          professional English teacher, which strengthened my communication
+          skills, problem-solving approach, and ability to collaborate
+          effectively in team environments.
+        </p>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-icon">
+            <Icon name="lucide:map-pin" size={22} />
+          </span>
+
+          <span class="stat-value"> Buenos Aires, AR </span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-icon">
+            <Icon name="lucide:graduation-cap" size={22} />
+          </span>
+
+          <span class="stat-value"> Associate Degree in Software Development UTN </span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-icon">
+            <Icon name="lucide:target" size={22} />
+          </span>
+
+          <span class="stat-value"> .NET Developer </span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-icon">
+            <Icon name="lucide:languages" size={22} />
+          </span>
+
+          <span class="stat-value"> English C2 Level </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .about-content {
+      flex-direction: row;
+
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+
+      padding-right: 2rem;
+
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .about-text p {
+      margin-bottom: 2rem;
+    }
+    
+
+    .about-stats {
+      flex: 1;
+    }
+  }
+
+  .about-stats {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+
+    text-align: center;
+  }
+
+  .stat-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.25rem;
+  }
+
+  .stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-primary);
+
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+
+    color: var(--color-text-muted);
+
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-weight: 600;
+
+    color: var(--color-text);
+  }
+</style>

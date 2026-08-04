@@ -1,0 +1,113 @@
+---
+import { Icon } from "astro-icon/components";
+import { skills } from "../data/skills.js";
+---
+
+<section id="stack" class="section">
+    <h2>Tech Stack</h2>
+
+    <div class="stack-grid">
+        {
+            skills.map((category) => (
+                <div class="card stack-card">
+                    <span class="stack-icon">
+                        <Icon name={category.icon} size={24} />
+                    </span>
+                    <h3>{category.title}</h3>
+
+                    <ul class="stack-list">
+                        {category.items.map((item) => (
+                            <li class="stack-item">{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .stack-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+        gap: 1.5rem;
+    }
+
+    .stack-card {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 1.25rem;
+    }
+
+    .stack-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .stack-list {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 0.75rem;
+
+        list-style: none;
+
+        padding: 0;
+    }
+
+    .stack-list li {
+        background-color: var(--color-bg);
+
+        color: var(--color-text);
+
+        font-size: 0.85rem;
+
+        padding: 0.35rem 0.75rem;
+
+        border-radius: 999px;
+    }
+
+    .stack-item {
+        background-color: var(--color-tag-bg);
+
+        color: var(--color-text);
+
+        padding: 0.35rem 0.8rem;
+
+        border-radius: 999px;
+
+        font-size: 0.85rem;
+
+        font-weight: 500;
+
+        border: 1px solid var(--color-border);
+
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
+    }
+
+    .stack-icon {
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 50%;
+
+        background-color: var(--color-primary-soft);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        color: var(--color-primary);
+
+        flex-shrink: 0;
+    }
+</style>

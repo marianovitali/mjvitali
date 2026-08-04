@@ -1,0 +1,42 @@
+---
+import { site } from "../data/site.js";
+import { Icon } from "astro-icon/components";
+---
+
+<section id="contact" class="section">
+    <div class="card contact-card">
+        <h2>Get In Touch</h2>
+        <p>
+            I'm currently looking for new opportunities as a .NET Backend
+            Developer. Whether you have a question or just want to say hi, I'll
+            try my best to get back to you!
+        </p>
+        <a href={`mailto:${site.email}`} class="btn btn-primary">Say Hello</a>
+    </div>
+</section>
+
+
+<style>
+.contact-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 1.5rem;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 3rem 2rem;
+}
+
+
+.contact-card p {
+    color: var(--color-text-muted);
+}
+</style>

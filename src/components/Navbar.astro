@@ -1,0 +1,144 @@
+---
+import { Icon } from "astro-icon/components";
+
+// Recibimos el idioma actual como prop (por defecto 'en')
+const { lang = "en" } = Astro.props;
+---
+
+<header class="navbar">
+    <div class="nav-container">
+        <!-- Izquierda: Logo + Selector de Idioma -->
+        <div class="nav-brand">
+            <a href={`/${lang}`} class="nav-logo"> MV. </a>
+            
+            <div class="lang-switch">
+                <a href="/en" class={lang === "en" ? "active" : ""}>EN</a>
+                <span class="separator">/</span>
+                <a href="/es" class={lang === "es" ? "active" : ""}>ES</a>
+            </div>
+        </div>
+
+        <!-- Derecha: Links de Navegación y Tema -->
+        <nav class="nav-links">
+            <a href="#home"> {lang === "en" ? "Home" : "Inicio"} </a>
+            <a href="#about"> {lang === "en" ? "About" : "Sobre mí"} </a>
+            <a href="#stack"> Stack </a>
+            <a href="#projects"> {lang === "en" ? "Projects" : "Proyectos"} </a>
+            <a href="#education"> {lang === "en" ? "Education" : "Educación"} </a>
+            <a href="#contact"> {lang === "en" ? "Contact" : "Contacto"} </a>
+            
+            <button
+                id="theme-toggle"
+                aria-label="Toggle dark mode"
+                title="Toggle dark mode"
+            >
+                <Icon id="theme-icon-moon" name="lucide:moon" size={20} class="theme-icon" />
+                <Icon id="theme-icon-sun" name="lucide:sun" size={20} class="theme-icon" />
+            </button>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background-color: color-mix(in srgb, var(--color-bg) 40%, transparent);
+        border-bottom: 0px solid var(--color-border);
+    }
+
+    .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Nuevo contenedor para agrupar Logo e Idioma */
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .nav-logo {
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+    }
+
+    /* Estilos para el selector de idioma */
+    .lang-switch {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--color-text-muted);
+        background: var(--color-primary-soft, rgba(0,0,0,0.05));
+        padding: 0.3rem 0.6rem;
+        border-radius: 6px;
+    }
+
+    .lang-switch a {
+        color: var(--color-text-muted);
+        transition: color 0.2s ease;
+    }
+
+    .lang-switch a:hover {
+        color: var(--color-text);
+    }
+
+    .lang-switch a.active {
+        color: var(--color-primary);
+        pointer-events: none; /* Evita que el usuario clickee el idioma en el que ya está */
+    }
+
+    .separator {
+        color: var(--color-border, #ccc);
+        font-weight: 400;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .nav-links a {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+        font-weight: 1000;
+        transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-text);
+    }
+
+    #theme-toggle {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text);
+    }
+
+    @media (max-width: 800px) {
+        .nav-links {
+            display: none; /* Acá deberías tener tu lógica de menú hamburguesa si la tenés */
+        }
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+    }
+</style>

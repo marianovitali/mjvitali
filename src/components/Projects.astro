@@ -1,0 +1,50 @@
+---
+import { projects } from "../data/projects.js";
+import ProjectCard from "./ProjectCard.astro";
+
+interface Props {
+    lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props as Props;
+
+const currentProjects = projects[lang];
+---
+
+<section id="projects" class="section">
+    <h2>{lang === "en" ? "Featured Projects" : "Proyectos Destacados"}</h2>
+
+    <div class="projects-grid">
+        {currentProjects.map((project) => <ProjectCard {...project} />)}
+    </div>
+</section>
+
+<style>
+    .projects-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+        gap: 2rem;
+    }
+
+    .section-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: baseline;
+    }
+
+    .view-all {
+        color: var(--color-primary);
+
+        font-weight: 600;
+
+        font-size: 0.9rem;
+    }
+
+    .view-all:hover {
+        text-decoration: underline;
+    }
+</style>

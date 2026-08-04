@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+const title = "Mariano Vitali | Backend .NET Developer";
+
+const description =
+    "Backend .NET Developer specialized in ASP.NET Core, REST APIs and SQL Server. Building clean and maintainable web applications.";
+
+const url = "https://tu-dominio.com";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>
+            {title}
+        </title>
+
+        <meta name="description" content={description} />
+
+        <meta name="author" content="Mariano Vitali" />
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Open Graph -->
+
+        <meta property="og:title" content={title} />
+
+        <meta property="og:description" content={description} />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:url" content={url} />
+    </head>
+
+    <body>
+        <main>
+            <slot />
+        </main>
+        <script src="../scripts/scroll.js"></script>
+        <script src="../scripts/theme.js"></script>
+    </body>
+</html>
