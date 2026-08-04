@@ -16,10 +16,10 @@ const data = about[lang];
         <h2>{data.title}</h2>
 
         <p>
-          {data.paragraph1}
+          {data.description[0]}
         </p>
         <p>
-          {data.paragraph2}
+          {data.description[1]}
         </p>
       </div>
 
@@ -137,5 +137,26 @@ const data = about[lang];
     font-weight: 600;
 
     color: var(--color-text);
+  }
+
+  .about-text {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+  .about-description p {
+    margin-bottom: 1.2rem !important;
+    line-height: 1.6;
+  }
+
+  .about-description p:last-child {
+    margin-bottom: 0 !important;
   }
 </style>

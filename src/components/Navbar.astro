@@ -1,13 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 
-// Recibimos el idioma actual como prop (por defecto 'en')
 const { lang = "en" } = Astro.props;
 ---
 
 <header class="navbar">
     <div class="nav-container">
-        <!-- Izquierda: Logo + Selector de Idioma -->
         <div class="nav-brand">
             <a href={`/${lang}`} class="nav-logo"> MV. </a>
             
@@ -18,15 +16,15 @@ const { lang = "en" } = Astro.props;
             </div>
         </div>
 
-        <!-- Derecha: Links de Navegación y Tema -->
-        <nav class="nav-links">
-            <a href="#home"> {lang === "en" ? "Home" : "Inicio"} </a>
-            <a href="#about"> {lang === "en" ? "About" : "Sobre mí"} </a>
-            <a href="#stack"> Stack </a>
-            <a href="#projects"> {lang === "en" ? "Projects" : "Proyectos"} </a>
-            <a href="#education"> {lang === "en" ? "Education" : "Educación"} </a>
-            <a href="#contact"> {lang === "en" ? "Contact" : "Contacto"} </a>
-            
+        <div class="nav-right">
+            <nav class="nav-links" id="nav-links">
+                <a href="#home"> {lang === "en" ? "Home" : "Inicio"} </a>
+                <a href="#about"> {lang === "en" ? "About" : "Sobre mí"} </a>
+                <a href="#stack"> Stack </a>
+                <a href="#projects"> {lang === "en" ? "Projects" : "Proyectos"} </a>
+                <a href="#education"> {lang === "en" ? "Education" : "Educación"} </a>
+                <a href="#contact"> {lang === "en" ? "Contact" : "Contacto"} </a>
+            </nav>
             <button
                 id="theme-toggle"
                 aria-label="Toggle dark mode"
@@ -35,7 +33,11 @@ const { lang = "en" } = Astro.props;
                 <Icon id="theme-icon-moon" name="lucide:moon" size={20} class="theme-icon" />
                 <Icon id="theme-icon-sun" name="lucide:sun" size={20} class="theme-icon" />
             </button>
-        </nav>
+
+            <button id="mobile-menu-btn" aria-label="Menú" class="mobile-toggle">
+                <Icon name="lucide:menu" size={24} />
+            </button>
+        </div>
     </div>
 </header>
 
@@ -58,7 +60,6 @@ const { lang = "en" } = Astro.props;
         align-items: center;
     }
 
-    /* Nuevo contenedor para agrupar Logo e Idioma */
     .nav-brand {
         display: flex;
         align-items: center;
@@ -71,7 +72,6 @@ const { lang = "en" } = Astro.props;
         letter-spacing: -0.04em;
     }
 
-    /* Estilos para el selector de idioma */
     .lang-switch {
         display: flex;
         align-items: center;
@@ -95,12 +95,28 @@ const { lang = "en" } = Astro.props;
 
     .lang-switch a.active {
         color: var(--color-primary);
-        pointer-events: none; /* Evita que el usuario clickee el idioma en el que ya está */
+        pointer-events: none;
     }
 
     .separator {
         color: var(--color-border, #ccc);
         font-weight: 400;
+    }
+
+    /* NUEVO: Contenedor para agrupar links y botones a la derecha */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .mobile-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        color: var(--color-text);
+        cursor: pointer;
+        padding: 0.5rem;
     }
 
     .nav-links {
@@ -129,11 +145,37 @@ const { lang = "en" } = Astro.props;
         align-items: center;
         justify-content: center;
         color: var(--color-text);
+        padding: 0.5rem;
     }
 
+    /* Lógica responsiva para celulares */
     @media (max-width: 800px) {
+        .mobile-toggle {
+            display: block; 
+        }
+
+        
+        .nav-right {
+            gap: 0.5rem;
+        }
+
         .nav-links {
-            display: none; /* Acá deberías tener tu lógica de menú hamburguesa si la tenés */
+            display: none; 
+            flex-direction: column;
+            align-items: center; 
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-bg);
+            padding: 1.5rem 2rem;
+            gap: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
         }
     }
 
@@ -142,3 +184,26 @@ const { lang = "en" } = Astro.props;
         outline-offset: 4px;
     }
 </style>
+
+<script>
+    function setupMobileMenu() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const links = navLinks?.querySelectorAll('a');
+
+        if (menuBtn && navLinks) {
+            menuBtn.onclick = () => {
+                navLinks.classList.toggle('active');
+            };
+
+            links?.forEach(link => {
+                link.onclick = () => {
+                    navLinks.classList.remove('active');
+                };
+            });
+        }
+    }
+
+    setupMobileMenu();
+    document.addEventListener('astro:after-swap', setupMobileMenu);
+</script>
