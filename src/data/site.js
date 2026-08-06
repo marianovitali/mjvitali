@@ -2,7 +2,7 @@ export const site = {
     name: "Mariano Vitali",
     email: "marianojuanvitali@gmail.com",
     github: "https://github.com/marianovitali",
-    linkedin: "https://linkedin.com/in/tu-perfil",
+    linkedin: "https://linkedin.com/in/marianovitali",
 
     en: {
         role: "Backend .NET Developer",
