@@ -16,7 +16,6 @@ body {
     color: var(--color-text);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    /* Mantiene la pantalla contenida sin anular el sticky del navbar */
     overflow-x: clip;
 }
 
